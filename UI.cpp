@@ -6,10 +6,12 @@ string startScreen() {
 }
 
 string outField(Field& field, Player& player) {
+
 	string out = "";
 
 	for (int y = 0; y < field.getWidth(); y++) {
 		for (int x = 0; x < field.getLength(); x++) {
+
 			if (x == player.getXcoord() && y == player.getYcoord()) {
 				out += "P  ";
 			}
@@ -23,6 +25,7 @@ string outField(Field& field, Player& player) {
 					break;
 				}
 			}
+
 		}
 		out += "\n";
 	}
@@ -30,35 +33,35 @@ string outField(Field& field, Player& player) {
 	return out;
 }
 
+#define ARRAY_UP 72
+#define ARRAY_DOWN 80
+#define ARRAY_RIGHT 77
+#define ARRAY_LEFT 75
+
 char setWay() {
 
-	const int ARRAY_UP = 72;
-	const int ARRAY_DOWN = 80;
-	const int ARRAY_RIGHT = 77;
-	const int ARRAY_LEFT = 75;
-
-	bool waySet = 0;
+	bool wayIsSet = false;
 	char way = 'u';
-	while (waySet == 0) {
+	while (wayIsSet == false) {
 
 		int keyCode = _getch();
 	
 		switch (keyCode) {
 		case ARRAY_UP:
 			way = 'u';
-			waySet = 1;
+			wayIsSet = true;
 			break;
 		case ARRAY_DOWN:
 			way = 'd';
-			waySet = 1;
+			wayIsSet = true;
 			break;
 		case ARRAY_RIGHT:
 			way = 'r';
-			waySet = 1;
+			wayIsSet = true;
 			break;
 		case ARRAY_LEFT:
 			way = 'l';
-			waySet = 1;
+			wayIsSet = true;
 			break;
 		}
 	}

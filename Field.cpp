@@ -1,12 +1,15 @@
 #include "Field.h"
 
 
+#define MIN_LENGTH 10
+#define MIN_WIDTH 10
+#define MIN_FRUIT_QUANT 5
 
 Field::Field() {
 	srand(time(0));
-	length = rand() % 11 + 10;
-	width = rand() % 11 + 10;
-	fruitCount = (rand() % 6) + 5;
+	length = rand() % 11 + MIN_LENGTH;
+	width = rand() % 11 + MIN_WIDTH;
+	fruitCount = (rand() % 6) + MIN_FRUIT_QUANT;
 
 	field = new bool*[width];
 	for (int count = 0; count < width; count++) {
